@@ -98,6 +98,81 @@
     margin:0;
   }
 
+  /* ---------- TABS ---------- */
+  .tabs{
+    display:flex;
+    justify-content:center;
+    gap: 10px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  .tab-btn{
+    background: transparent;
+    border: 1px solid var(--line);
+    color: rgba(242,234,217,0.55);
+    padding: 11px 26px;
+    font-size: 11.5px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .tab-btn:hover{ color: var(--cream); }
+  .tab-btn.active{
+    border-color: var(--brass);
+    color: var(--brass);
+  }
+  .tab-panel{ display:none; }
+  .tab-panel.active{ display:block; }
+
+  /* ---------- ELEGANT MENU (for her) ---------- */
+  .elegant-menu{
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .elegant-menu .occasion{
+    text-align:center;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 16px;
+    color: rgba(242,234,217,0.65);
+    margin-bottom: 40px;
+  }
+  .course-block{
+    text-align:center;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .course-block:first-of-type{ padding-top:0; }
+  .course-block:last-of-type{ border-bottom:none; }
+  .course-block .course-label{
+    font-size: 10.5px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 12px;
+  }
+  .course-block .dish-name{
+    font-family: var(--font-display);
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  .course-block .dish-desc{
+    font-size: 13.5px;
+    font-style: italic;
+    color: rgba(242,234,217,0.55);
+  }
+  .menu-close{
+    text-align:center;
+    margin-top: 44px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--brass);
+  }
+
   /* ---------- SECTION HEADERS ---------- */
   .section-title{
     font-family: var(--font-display);
@@ -355,30 +430,47 @@
     <div class="fork-divider"></div>
   </div>
 
-  <div class="menu">
-    <div class="menu-item">
-      <div class="course">Turf</div>
-      <h3>Pan-Seared Ribeye</h3>
-      <p>Herb butter basted, rested and sliced</p>
-    </div>
-    <div class="menu-item">
-      <div class="course">Surf</div>
-      <h3>Garlic Butter Lobster Tail</h3>
-      <p>Slow poached in garlic butter, finished with lemon</p>
-    </div>
-    <div class="menu-item">
-      <div class="course">Side</div>
-      <h3>French Green Beans</h3>
-      <p>Haricots verts, garlic, shallot, toasted almonds</p>
-    </div>
-    <div class="menu-item">
-      <div class="course">Side</div>
-      <h3>Creamy Parmesan Mash</h3>
-      <p>Buttery, silky, no garlic, no chives</p>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="menu">Menu</button>
+    <button class="tab-btn" data-tab="recipe">Recipe</button>
+    <button class="tab-btn" data-tab="shopping">Shopping List</button>
+  </div>
+
+  <!-- ================= MENU (elegant, for her) ================= -->
+  <div class="tab-panel active" id="tab-menu">
+    <div class="elegant-menu">
+      <div class="occasion">Happy Birthday, my love</div>
+
+      <div class="course-block">
+        <div class="course-label">Turf</div>
+        <div class="dish-name">Pan-Seared Ribeye</div>
+        <div class="dish-desc">herb butter basted, rested and sliced</div>
+      </div>
+
+      <div class="course-block">
+        <div class="course-label">Surf</div>
+        <div class="dish-name">Garlic Butter Lobster Tail</div>
+        <div class="dish-desc">slow poached, finished with lemon</div>
+      </div>
+
+      <div class="course-block">
+        <div class="course-label">Side</div>
+        <div class="dish-name">French Green Beans</div>
+        <div class="dish-desc">haricots verts, shallot &amp; toasted almonds</div>
+      </div>
+
+      <div class="course-block">
+        <div class="course-label">Side</div>
+        <div class="dish-name">Creamy Parmesan Mash</div>
+        <div class="dish-desc">buttery, silky, finished with parmesan</div>
+      </div>
+
+      <div class="menu-close">— made with love, just for you —</div>
     </div>
   </div>
 
-  <!-- ================= RECIPE ================= -->
+  <!-- ================= RECIPE TAB ================= -->
+  <div class="tab-panel" id="tab-recipe">
   <section>
     <h2 class="section-title">The Recipe <span class="tag">Cook</span></h2>
     <p class="section-sub">Start the potatoes first, lobster next, steak last — everything rests and lands on the plate together.</p>
@@ -570,8 +662,10 @@
       </div>
     </div>
   </section>
+  </div>
 
-  <!-- ================= SHOPPING LIST ================= -->
+  <!-- ================= SHOPPING LIST TAB ================= -->
+  <div class="tab-panel" id="tab-shopping">
   <section>
     <h2 class="section-title">The Shopping List <span class="tag">Check Off</span></h2>
     <p class="section-sub">Tick items off as you grab them — nothing to save, just for this trip.</p>
@@ -625,6 +719,7 @@
       </div>
     </div>
   </section>
+  </div>
 
   <footer>Happy Birthday — enjoy the cook.</footer>
 </div>
@@ -643,6 +738,18 @@
 
   checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
   updateProgress();
+
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabButtons.forEach(b => b.classList.remove('active'));
+      tabPanels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
 </script>
 </body>
 </html>

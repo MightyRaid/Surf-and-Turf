@@ -141,6 +141,26 @@
     color: var(--brass);
     margin-bottom: 12px;
   }
+  .dish-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .dish-icon{
+    flex-shrink: 0;
+    opacity: 0.95;
+  }
+  .dish-icon svg{ display:block; }
+  .dish-icon .cap{
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(242,234,217,0.4);
+    text-align:center;
+    margin-top: 4px;
+  }
   .dish ol{
     margin: 0;
     padding-left: 18px;
@@ -364,23 +384,59 @@
     <p class="section-sub">Start the potatoes first, lobster next, steak last — everything rests and lands on the plate together.</p>
 
     <div class="dish">
-      <h4>Pan-Seared Ribeye with Herb Butter</h4>
-      <div class="serves">2 adult portions + 1 kid portion, cut into bites</div>
+      <div class="dish-head">
+        <div>
+          <h4>Pan-Seared Ribeye with Herb Butter</h4>
+          <div class="serves">2 adult portions + 1 kid portion, cut into bites</div>
+        </div>
+        <div class="dish-icon">
+          <svg width="120" height="90" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="24" width="92" height="42" rx="10" stroke="#b8823f" stroke-width="2"/>
+            <path d="M22 30 Q 60 22 98 30" stroke="#b8823f" stroke-width="1" opacity="0.5"/>
+            <path d="M22 40 Q 60 34 98 40" stroke="#b8823f" stroke-width="1" opacity="0.5"/>
+            <path d="M22 50 Q 60 44 98 50" stroke="#b8823f" stroke-width="1" opacity="0.5"/>
+            <path d="M22 60 Q 60 56 98 60" stroke="#b8823f" stroke-width="1" opacity="0.5"/>
+            <line x1="38" y1="14" x2="38" y2="76" stroke="#f2ead9" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <line x1="60" y1="14" x2="60" y2="76" stroke="#f2ead9" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <line x1="82" y1="14" x2="82" y2="76" stroke="#f2ead9" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <path d="M52 8 L60 14 L68 8" stroke="#f2ead9" stroke-width="1.5" fill="none"/>
+          </svg>
+          <div class="cap">Cut across the grain</div>
+        </div>
+      </div>
       <ol>
-        <li>Take steaks out of the fridge 30–40 minutes before cooking. Pat completely dry and season generously with salt on both sides.</li>
-        <li>Heat a heavy pan (cast iron ideal) over high heat until just smoking. Add a high-smoke-point oil.</li>
-        <li>Sear steak 3–4 minutes per side for medium-rare, pressing down lightly for even contact.</li>
+        <li>Take steaks out of the fridge 30–40 minutes before cooking so they cook more evenly. Trim off any large hard pieces of exterior fat, but leave the marbling alone.</li>
+        <li>Pat completely dry with paper towel — moisture on the surface stops it from browning properly — and season generously with salt on both sides.</li>
+        <li>Heat a heavy pan (your HexClad skillet is perfect) over high heat until just smoking. Add a high-smoke-point oil.</li>
+        <li>Sear steak 3–4 minutes per side for medium-rare, pressing down lightly for even contact. Use tongs to also sear the fat edge, standing the steak up, for about 30 seconds.</li>
         <li>In the last minute, add butter, smashed garlic cloves and thyme/rosemary. Tilt the pan and spoon the melted butter over the steak continuously.</li>
-        <li>Rest steak on a board for 5–8 minutes before slicing against the grain.</li>
-        <li>For the kid's portion: cook a smaller piece a little longer (medium/well), then cut into small bite-sized cubes once rested.</li>
+        <li>Rest steak on a board for 5–8 minutes before slicing against the grain (cutting across the muscle fibers, not parallel to them) into finger-width strips.</li>
+        <li>For the kid's portion: cook a smaller piece a little longer (medium/well), rest it the same way, then cut first into strips against the grain, and cut those strips again into small pea-to-thumbnail-sized cubes — small enough for a 5-year-old to chew easily.</li>
       </ol>
     </div>
 
     <div class="dish">
-      <h4>Garlic Butter Lobster Tail</h4>
-      <div class="serves">2–3 tails, depending on size</div>
+      <div class="dish-head">
+        <div>
+          <h4>Garlic Butter Lobster Tail</h4>
+          <div class="serves">2–3 tails, depending on size</div>
+        </div>
+        <div class="dish-icon">
+          <svg width="120" height="90" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 20 C20 30 20 55 30 65 L60 72 C85 72 100 60 100 45 C100 30 85 18 60 18 Z" stroke="#b8823f" stroke-width="2" fill="none"/>
+            <path d="M100 45 L112 38 M100 45 L112 52 M100 45 L110 45" stroke="#b8823f" stroke-width="1.5"/>
+            <line x1="34" y1="24" x2="90" y2="42" stroke="#f2ead9" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <path d="M32 34 C50 30 75 34 88 44" stroke="#e0a08f" stroke-width="2" fill="none" opacity="0.85"/>
+          </svg>
+          <div class="cap">Split shell, lift meat out</div>
+        </div>
+      </div>
       <ol>
-        <li>Using kitchen shears, cut down the top of the lobster shell and gently pull the meat up and out, resting it on top of the shell.</li>
+        <li><b>If frozen,</b> thaw tails in the fridge overnight, or in a bowl of cold water for 30–45 minutes if you're short on time. Pat completely dry with paper towel once thawed.</li>
+        <li><b>Butterfly the shell:</b> using kitchen shears, cut straight down the center of the top (hard, curved) shell, starting from where the tail meets the body down to just before the tail fan. Cut through the shell only, not the meat underneath.</li>
+        <li>Use your fingers to gently spread the cut shell apart. Run your thumb underneath the meat to loosen it from the shell on both sides, keeping the meat attached at the base near the tail fan.</li>
+        <li><b>Lift the meat up and out</b> through the split shell, then rest it on top of the shell, letting the shell halves close underneath like a little boat. This is what makes it easy to poach and elegant to plate.</li>
+        <li><b>Devein if needed:</b> run the tip of a knife shallowly down the top center of the meat — if you see a thin dark vein, lift it out with the knife tip or your fingers and discard. Small/farmed tails often won't have a visible one.</li>
         <li>In a small saucepan over low heat, melt butter with a splash of water and 1–2 minced garlic cloves, whisking so it doesn't split, until fragrant and silky.</li>
         <li>Lower lobster meat into the warm (not boiling) garlic butter and poach gently for 4–6 minutes until just opaque and firm.</li>
         <li>Remove, season lightly with salt, and finish with a squeeze of lemon and a spoon of the garlic butter just before serving.</li>
@@ -389,10 +445,26 @@
     </div>
 
     <div class="dish">
-      <h4>French Green Beans (Haricots Verts)</h4>
-      <div class="serves">Side for the table</div>
+      <div class="dish-head">
+        <div>
+          <h4>French Green Beans (Haricots Verts)</h4>
+          <div class="serves">Side for the table</div>
+        </div>
+        <div class="dish-icon">
+          <svg width="120" height="90" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 30 C24 45 24 60 22 72" stroke="#b8823f" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M42 26 C44 42 44 58 42 74" stroke="#b8823f" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M62 32 C64 46 64 60 62 70" stroke="#b8823f" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M82 28 C84 44 84 60 82 73" stroke="#b8823f" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <line x1="12" y1="30" x2="94" y2="26" stroke="#f2ead9" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <path d="M8 22 L12 30 L8 38" stroke="#f2ead9" stroke-width="1.5" fill="none"/>
+          </svg>
+          <div class="cap">Trim the stem ends</div>
+        </div>
+      </div>
       <ol>
-        <li>Blanch beans in well-salted boiling water for 2–3 minutes until bright green and just tender. Shock in ice water to stop cooking.</li>
+        <li><b>Trim the beans:</b> line up a handful at a time and cut off the tough stem ends with one slice. The thin tail end is tender and fine to leave on.</li>
+        <li>Blanch beans in well-salted boiling water for 2–3 minutes until bright green and just tender. Shock in ice water to stop cooking, then drain well.</li>
         <li>In a pan, melt butter and gently cook sliced shallot and minced garlic until fragrant, not browned.</li>
         <li>Toss in the beans and sauté 2–3 minutes to warm through and coat in the garlic butter.</li>
         <li>Finish with toasted sliced almonds and a pinch of flaky salt.</li>
@@ -400,10 +472,29 @@
     </div>
 
     <div class="dish">
-      <h4>Creamy Parmesan Mash</h4>
-      <div class="serves">Side for the table — no garlic, no chives</div>
+      <div class="dish-head">
+        <div>
+          <h4>Creamy Parmesan Mash</h4>
+          <div class="serves">Side for the table — no garlic, no chives</div>
+        </div>
+        <div class="dish-icon">
+          <svg width="120" height="90" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 24 C22 20 16 30 18 40 C10 46 12 58 22 62 C24 70 34 74 42 68 C52 72 62 66 60 56 C68 52 66 40 56 38 C56 28 44 20 34 26 Z" stroke="#b8823f" stroke-width="2" fill="none"/>
+            <rect x="72" y="28" width="14" height="14" stroke="#f2ead9" stroke-width="1.5"/>
+            <rect x="88" y="28" width="14" height="14" stroke="#f2ead9" stroke-width="1.5"/>
+            <rect x="72" y="44" width="14" height="14" stroke="#f2ead9" stroke-width="1.5"/>
+            <rect x="88" y="44" width="14" height="14" stroke="#f2ead9" stroke-width="1.5"/>
+            <path d="M62 40 L72 38" stroke="#f2ead9" stroke-width="1.5" stroke-dasharray="3 2"/>
+          </svg>
+          <div class="cap">Even 1.5–2" cubes</div>
+        </div>
+      </div>
       <ol>
-        <li>Peel and quarter potatoes, cover with cold salted water. Bring to a boil and simmer until fork-tender, about 15–18 minutes.</li>
+        <li><b>Choose the right potato:</b> starchy or all-purpose potatoes mash best — russet/baking potatoes or Yukon Gold. Avoid waxy potatoes (like small red or new potatoes), they turn gluey when mashed.</li>
+        <li><b>Peel</b> with a vegetable peeler, going all the way around until no skin remains. Cut out any eyes or blemishes with the tip of a knife.</li>
+        <li><b>Cut into even chunks</b>, roughly 1.5–2 inch (4–5cm) cubes. Keeping the pieces the same size means they all finish cooking at the same time — uneven pieces mean some go mushy while others are still hard.</li>
+        <li>Place the cut potatoes in a pot and cover with cold water by about an inch, add a generous pinch of salt. Starting from cold water (not adding potatoes to already-boiling water) cooks them more evenly through.</li>
+        <li>Bring to a boil, then drop to a simmer and cook until fork-tender, about 15–18 minutes. You'll know they're ready when a knife slides in with no resistance.</li>
         <li>Drain well and pass through a ricer or mash thoroughly while hot.</li>
         <li>Fold in warm butter and warm milk/cream gradually until smooth, light and extra creamy.</li>
         <li>Stir in grated parmesan until fully melted through, then season with salt to taste.</li>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surf & Turf Birthday Dinner</title>
+<style>
+  :root{
+    --ink:#1f1a17;
+    --charcoal:#2b241f;
+    --cream:#f2ead9;
+    --brass:#b8823f;
+    --brass-dark:#8f6428;
+    --sear:#7a2e21;
+    --line: rgba(242,234,217,0.16);
+    --paper: #efe6d1;
+    --font-display: 'Georgia', 'Iowan Old Style', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background: var(--charcoal);
+    color: var(--cream);
+    font-family: var(--font-body);
+    line-height:1.55;
+  }
+
+  .wrap{
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    text-align:center;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 40px;
+  }
+  .eyebrow{
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 14px;
+  }
+  h1{
+    font-family: var(--font-display);
+    font-size: clamp(32px, 6vw, 54px);
+    margin: 0 0 10px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+  .hero p{
+    color: rgba(242,234,217,0.65);
+    font-size: 15px;
+    margin: 0;
+  }
+  .fork-divider{
+    width: 60px; height: 2px;
+    background: var(--brass);
+    margin: 22px auto 0;
+  }
+
+  /* ---------- MENU CARD ---------- */
+  .menu{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 18px;
+    margin-bottom: 56px;
+  }
+  .menu-item{
+    background: rgba(242,234,217,0.04);
+    border: 1px solid var(--line);
+    padding: 22px 20px;
+    position:relative;
+  }
+  .menu-item .course{
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 8px;
+  }
+  .menu-item h3{
+    font-family: var(--font-display);
+    font-weight:400;
+    font-size: 21px;
+    margin: 0 0 6px;
+  }
+  .menu-item p{
+    font-size: 13.5px;
+    color: rgba(242,234,217,0.6);
+    margin:0;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section-title{
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 400;
+    margin: 0 0 6px;
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+  }
+  .section-title span.tag{
+    font-family: var(--font-body);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--brass);
+  }
+  .section-sub{
+    color: rgba(242,234,217,0.55);
+    font-size: 13.5px;
+    margin: 0 0 26px;
+  }
+
+  section{ margin-bottom: 60px; }
+
+  /* ---------- RECIPE STEPS ---------- */
+  .dish{
+    margin-bottom: 38px;
+    padding-left: 22px;
+    border-left: 2px solid var(--line);
+  }
+  .dish h4{
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--cream);
+    margin: 0 0 4px;
+  }
+  .dish .serves{
+    font-size: 12px;
+    color: var(--brass);
+    margin-bottom: 12px;
+  }
+  .dish ol{
+    margin: 0;
+    padding-left: 18px;
+  }
+  .dish li{
+    margin-bottom: 9px;
+    font-size: 14.5px;
+    color: rgba(242,234,217,0.85);
+  }
+  .kid-note{
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(184,130,63,0.1);
+    border-left: 3px solid var(--brass);
+    font-size: 13px;
+    color: rgba(242,234,217,0.8);
+  }
+  .kid-note b{ color: var(--brass); }
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{
+    position: relative;
+    padding-left: 26px;
+    border-left: 2px solid var(--line);
+  }
+  .tstep{
+    position: relative;
+    padding-bottom: 26px;
+  }
+  .tstep:last-child{ padding-bottom: 0; }
+  .tstep::before{
+    content:"";
+    position:absolute;
+    left: -32px;
+    top: 4px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--brass);
+    border: 2px solid var(--charcoal);
+  }
+  .tstep .time{
+    font-family: var(--font-display);
+    font-size: 15px;
+    color: var(--brass);
+    margin-bottom: 4px;
+  }
+  .tstep .badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-bottom: 8px;
+  }
+  .badge{
+    font-size: 10.5px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border: 1px solid var(--line);
+    color: rgba(242,234,217,0.6);
+  }
+  .badge.hot{ border-color: var(--sear); color: #e0a08f; }
+  .tstep p{
+    margin: 0;
+    font-size: 14.5px;
+    color: rgba(242,234,217,0.85);
+  }
+
+  /* ---------- SHOPPING LIST (paper ticket look) ---------- */
+  .ticket{
+    background: var(--paper);
+    color: var(--ink);
+    padding: 32px 28px 36px;
+    border-radius: 2px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  }
+  .ticket-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    border-bottom: 2px dashed rgba(31,26,23,0.25);
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+  }
+  .ticket-head h2{
+    font-family: var(--font-display);
+    font-weight:400;
+    font-size: 22px;
+    margin:0;
+  }
+  .ticket-head .store{
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--sear);
+    font-weight:bold;
+  }
+  .progress{
+    font-size: 12px;
+    color: rgba(31,26,23,0.55);
+    margin-bottom: 22px;
+  }
+  .progress-bar{
+    height: 4px;
+    background: rgba(31,26,23,0.12);
+    margin-top: 6px;
+    overflow:hidden;
+  }
+  .progress-bar-fill{
+    height:100%;
+    width: 0%;
+    background: var(--sear);
+    transition: width 0.25s ease;
+  }
+
+  .list-group{ margin-bottom: 22px; }
+  .list-group h5{
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--brass-dark);
+    margin: 0 0 10px;
+    border-bottom: 1px solid rgba(31,26,23,0.15);
+    padding-bottom: 6px;
+  }
+
+  .item{
+    display:flex;
+    align-items:flex-start;
+    gap: 12px;
+    padding: 7px 2px;
+    cursor:pointer;
+  }
+  .item input{
+    appearance:none;
+    -webkit-appearance:none;
+    width: 18px; height:18px;
+    min-width:18px;
+    border: 1.5px solid rgba(31,26,23,0.4);
+    border-radius: 3px;
+    margin-top: 2px;
+    position:relative;
+    cursor:pointer;
+    background: transparent;
+  }
+  .item input:checked{
+    background: var(--sear);
+    border-color: var(--sear);
+  }
+  .item input:checked::after{
+    content:"";
+    position:absolute;
+    left: 5px; top: 1px;
+    width: 5px; height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .item label{
+    font-size: 14.5px;
+    cursor:pointer;
+  }
+  .item label .qty{
+    color: rgba(31,26,23,0.5);
+    font-size: 12.5px;
+    margin-left: 4px;
+  }
+  .item input:checked ~ label{
+    text-decoration: line-through;
+    color: rgba(31,26,23,0.4);
+  }
+
+  footer{
+    text-align:center;
+    margin-top: 50px;
+    font-size: 12px;
+    color: rgba(242,234,217,0.35);
+  }
+
+  @media (max-width: 480px){
+    .wrap{ padding: 32px 16px 60px; }
+    .ticket{ padding: 24px 18px 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">Birthday Dinner · Serves 3</div>
+    <h1>Surf &amp; Turf, At Home</h1>
+    <p>Seared ribeye, butter-poached lobster tail, haricots verts &amp; garlic mash</p>
+    <div class="fork-divider"></div>
+  </div>
+
+  <div class="menu">
+    <div class="menu-item">
+      <div class="course">Turf</div>
+      <h3>Pan-Seared Ribeye</h3>
+      <p>Herb butter basted, rested and sliced</p>
+    </div>
+    <div class="menu-item">
+      <div class="course">Surf</div>
+      <h3>Garlic Butter Lobster Tail</h3>
+      <p>Slow poached in garlic butter, finished with lemon</p>
+    </div>
+    <div class="menu-item">
+      <div class="course">Side</div>
+      <h3>French Green Beans</h3>
+      <p>Haricots verts, garlic, shallot, toasted almonds</p>
+    </div>
+    <div class="menu-item">
+      <div class="course">Side</div>
+      <h3>Creamy Parmesan Mash</h3>
+      <p>Buttery, silky, no garlic, no chives</p>
+    </div>
+  </div>
+
+  <!-- ================= RECIPE ================= -->
+  <section>
+    <h2 class="section-title">The Recipe <span class="tag">Cook</span></h2>
+    <p class="section-sub">Start the potatoes first, lobster next, steak last — everything rests and lands on the plate together.</p>
+
+    <div class="dish">
+      <h4>Pan-Seared Ribeye with Herb Butter</h4>
+      <div class="serves">2 adult portions + 1 kid portion, cut into bites</div>
+      <ol>
+        <li>Take steaks out of the fridge 30–40 minutes before cooking. Pat completely dry and season generously with salt on both sides.</li>
+        <li>Heat a heavy pan (cast iron ideal) over high heat until just smoking. Add a high-smoke-point oil.</li>
+        <li>Sear steak 3–4 minutes per side for medium-rare, pressing down lightly for even contact.</li>
+        <li>In the last minute, add butter, smashed garlic cloves and thyme/rosemary. Tilt the pan and spoon the melted butter over the steak continuously.</li>
+        <li>Rest steak on a board for 5–8 minutes before slicing against the grain.</li>
+        <li>For the kid's portion: cook a smaller piece a little longer (medium/well), then cut into small bite-sized cubes once rested.</li>
+      </ol>
+    </div>
+
+    <div class="dish">
+      <h4>Garlic Butter Lobster Tail</h4>
+      <div class="serves">2–3 tails, depending on size</div>
+      <ol>
+        <li>Using kitchen shears, cut down the top of the lobster shell and gently pull the meat up and out, resting it on top of the shell.</li>
+        <li>In a small saucepan over low heat, melt butter with a splash of water and 1–2 minced garlic cloves, whisking so it doesn't split, until fragrant and silky.</li>
+        <li>Lower lobster meat into the warm (not boiling) garlic butter and poach gently for 4–6 minutes until just opaque and firm.</li>
+        <li>Remove, season lightly with salt, and finish with a squeeze of lemon and a spoon of the garlic butter just before serving.</li>
+        <li>For the kid's portion: serve a small piece plain with plain butter (set some aside before adding garlic), cut into small pieces.</li>
+      </ol>
+    </div>
+
+    <div class="dish">
+      <h4>French Green Beans (Haricots Verts)</h4>
+      <div class="serves">Side for the table</div>
+      <ol>
+        <li>Blanch beans in well-salted boiling water for 2–3 minutes until bright green and just tender. Shock in ice water to stop cooking.</li>
+        <li>In a pan, melt butter and gently cook sliced shallot and minced garlic until fragrant, not browned.</li>
+        <li>Toss in the beans and sauté 2–3 minutes to warm through and coat in the garlic butter.</li>
+        <li>Finish with toasted sliced almonds and a pinch of flaky salt.</li>
+      </ol>
+    </div>
+
+    <div class="dish">
+      <h4>Creamy Parmesan Mash</h4>
+      <div class="serves">Side for the table — no garlic, no chives</div>
+      <ol>
+        <li>Peel and quarter potatoes, cover with cold salted water. Bring to a boil and simmer until fork-tender, about 15–18 minutes.</li>
+        <li>Drain well and pass through a ricer or mash thoroughly while hot.</li>
+        <li>Fold in warm butter and warm milk/cream gradually until smooth, light and extra creamy.</li>
+        <li>Stir in grated parmesan until fully melted through, then season with salt to taste.</li>
+      </ol>
+      <div class="kid-note" style="margin-top:14px;">
+        <b>Other options if you want to switch it up:</b> a classic buttermilk mash (swap the cream for buttermilk, extra tangy), or fold in a spoon of cream cheese for an even richer, silkier texture. Both stay garlic and chive-free.
+      </div>
+    </div>
+
+    <div class="kid-note">
+      <b>For the birthday girl (age 5):</b> plate her steak bites and lobster pieces separately, unseasoned beyond a little salt, with extra mashed potato — no pepper, no lemon, nothing spicy.
+    </div>
+  </section>
+
+  <!-- ================= TIMELINE ================= -->
+  <section>
+    <h2 class="section-title">The Game Plan <span class="tag">Timeline</span></h2>
+    <p class="section-sub">Built around 2 big burners + 1 small burner, your oven for holding things warm, and the HexClad set. Times count down to serving.</p>
+
+    <div class="timeline">
+      <div class="tstep">
+        <div class="time">T&minus;60 min</div>
+        <div class="badges"><span class="badge">Oven</span><span class="badge">Prep</span></div>
+        <p>Take steaks out of the fridge to come to room temperature. Preheat the oven to 90°C (200°F) — you'll use it to hold cooked food warm, not to cook in.</p>
+      </div>
+
+      <div class="tstep">
+        <div class="time">T&minus;45 min</div>
+        <div class="badges"><span class="badge">Big Burner 1</span><span class="badge">HexClad Pot</span></div>
+        <p>Start the potatoes: large HexClad pot of salted water on your first big burner. Bring to a boil, then simmer.</p>
+      </div>
+
+      <div class="tstep">
+        <div class="time">T&minus;35 min</div>
+        <div class="badges"><span class="badge">Big Burner 2</span><span class="badge">HexClad Pot</span></div>
+        <p>While potatoes simmer, blanch the green beans in a second pot on your other big burner — 2–3 minutes, then straight into ice water to stop cooking. Set aside.</p>
+      </div>
+
+      <div class="tstep">
+        <div class="time">T&minus;27 min</div>
+        <div class="badges"><span class="badge">Big Burner 1</span><span class="badge">Oven</span></div>
+        <p>Potatoes should be fork-tender — drain, mash, fold in butter, cream and parmesan. Cover and park it in the oven to stay warm.</p>
+      </div>
+
+      <div class="tstep">
+        <div class="time">T&minus;20 min</div>
+        <div class="badges"><span class="badge">Prep</span></div>
+        <p>Shell the lobster tails, resting the meat on top of the shell. Mince the garlic and shallot you'll need for the lobster and the beans.</p>
+      </div>
+
+      <div class="tstep">
+        <div class="time">T&minus;15 min</div>
+        <div class="badges"><span class="badge">Small Burner</span><span class="badge">Small Saucier</span></div>
+        <p>Melt butter and garlic gently in your small saucier on the small burner. Set aside a little plain butter for your daughter's portion first, then poach the lobster meat 4–6 minutes on low heat. Once done, cover loosely off the heat — it'll stay warm on residual heat.</p>
+      </div>
+
+      <div class="tstep">
+        <div class="time">T&minus;10 min</div>
+        <div class="badges hot-wrap"><span class="badge hot">Big Burner 1</span><span class="badge">HexClad Skillet</span></div>
+        <p>Burner 1 is free now — get it ripping hot with a HexClad skillet. Sear the steaks 3–4 minutes a side, basting with herb butter in the last minute.</p>
+      </div>
+
+      <div class="tstep">
+        <div class="time">T&minus;4 min</div>
+        <div class="badges"><span class="badge">Resting</span><span class="badge">Big Burner 2</span></div>
+        <p>Move steak to a board to rest. While it rests, use Burner 2 to quickly sauté the blanched beans in garlic butter, 2–3 minutes, finishing with toasted almonds.</p>
+      </div>
+
+      <div class="tstep">
+        <div class="time">T&minus;0</div>
+        <div class="badges"><span class="badge hot">Plate</span></div>
+        <p>Slice the rested steak, plate the lobster with a spoon of garlic butter over it, add the beans and a generous scoop of parmesan mash. Serve immediately.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SHOPPING LIST ================= -->
+  <section>
+    <h2 class="section-title">The Shopping List <span class="tag">Check Off</span></h2>
+    <p class="section-sub">Tick items off as you grab them — nothing to save, just for this trip.</p>
+
+    <div class="ticket">
+      <div class="ticket-head">
+        <h2>Market List</h2>
+        <div class="store">Cold Storage</div>
+      </div>
+
+      <div class="progress">
+        <span id="progressText">0 of 0 items collected</span>
+        <div class="progress-bar"><div class="progress-bar-fill" id="progressFill"></div></div>
+      </div>
+
+      <div class="list-group">
+        <h5>Meat &amp; Seafood</h5>
+        <div class="item"><input type="checkbox" id="i1"><label for="i1">Ribeye steaks <span class="qty">— 2 pieces, ~250g each</span></label></div>
+        <div class="item"><input type="checkbox" id="i2"><label for="i2">Lobster tails <span class="qty">— 2 to 3, fresh or frozen</span></label></div>
+      </div>
+
+      <div class="list-group">
+        <h5>Produce</h5>
+        <div class="item"><input type="checkbox" id="i3"><label for="i3">French green beans <span class="qty">(haricots verts) — 300g</span></label></div>
+        <div class="item"><input type="checkbox" id="i4"><label for="i4">Potatoes <span class="qty">— 800g, for mashing</span></label></div>
+        <div class="item"><input type="checkbox" id="i5"><label for="i5">Garlic <span class="qty">— 1 bulb, for beans + lobster</span></label></div>
+        <div class="item"><input type="checkbox" id="i6"><label for="i6">Shallot <span class="qty">— 1</span></label></div>
+        <div class="item"><input type="checkbox" id="i7"><label for="i7">Lemon <span class="qty">— 1</span></label></div>
+        <div class="item"><input type="checkbox" id="i8"><label for="i8">Fresh thyme or rosemary <span class="qty">— 1 small pack</span></label></div>
+      </div>
+
+      <div class="list-group">
+        <h5>Dairy</h5>
+        <div class="item"><input type="checkbox" id="i10"><label for="i10">Unsalted butter <span class="qty">— at least 250g total</span></label></div>
+        <div class="item"><input type="checkbox" id="i11"><label for="i11">Milk or cream <span class="qty">— for mashed potatoes</span></label></div>
+        <div class="item"><input type="checkbox" id="i18"><label for="i18">Parmesan cheese <span class="qty">— grated, for the mash</span></label></div>
+      </div>
+
+      <div class="list-group">
+        <h5>Pantry &amp; Seasoning</h5>
+        <div class="item"><input type="checkbox" id="i12"><label for="i12">Sliced almonds <span class="qty">— small pack, for the beans</span></label></div>
+        <div class="item"><input type="checkbox" id="i13"><label for="i13">Cooking oil <span class="qty">— high smoke point, for searing</span></label></div>
+        <div class="item"><input type="checkbox" id="i14"><label for="i14">Flaky salt</label></div>
+        <div class="item"><input type="checkbox" id="i15"><label for="i15">Black pepper</label></div>
+      </div>
+
+      <div class="list-group">
+        <h5>Birthday Extras</h5>
+        <div class="item"><input type="checkbox" id="i16"><label for="i16">Birthday candle</label></div>
+        <div class="item"><input type="checkbox" id="i17"><label for="i17">Something for dessert</label></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>Happy Birthday — enjoy the cook.</footer>
+</div>
+
+<script>
+  const checkboxes = document.querySelectorAll('.item input[type="checkbox"]');
+  const progressText = document.getElementById('progressText');
+  const progressFill = document.getElementById('progressFill');
+
+  function updateProgress(){
+    const total = checkboxes.length;
+    const checked = document.querySelectorAll('.item input[type="checkbox"]:checked').length;
+    progressText.textContent = checked + ' of ' + total + ' items collected';
+    progressFill.style.width = (total ? (checked/total*100) : 0) + '%';
+  }
+
+  checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
+  updateProgress();
+</script>
+</body>
+</html>
